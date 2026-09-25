@@ -1,114 +1,130 @@
-
-#root {
-  min-height: 100vh;
+* {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  font-family:
+    Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f3f7fc;
+  color: #172033;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* =========================
+   AUTH PAGE
+========================= */
 
 .auth-page {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  box-sizing: border-box;
-  background: linear-gradient(135deg, #eef2ff, #f8fafc 55%, #e0f2fe);
-  font-family: Inter, system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  background:
+    radial-gradient(circle at top left, #eef4ff 0, transparent 35%),
+    linear-gradient(135deg, #f5f8ff, #eef7fc);
 }
 
 .auth-card {
   width: 100%;
-  max-width: 430px;
-  box-sizing: border-box;
-  padding: 36px;
+  max-width: 480px;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(30, 41, 59, 0.10);
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 38px;
+  box-shadow: 0 20px 60px rgba(25, 55, 95, 0.12);
 }
 
 .brand-icon {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 22px;
-  border-radius: 14px;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
   background: #2563eb;
   color: white;
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
   font-weight: 800;
+  margin-bottom: 24px;
 }
 
 .eyebrow {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   color: #2563eb;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
 }
 
 .auth-card h1 {
   margin: 0;
-  color: #111827;
-  font-size: 30px;
-  letter-spacing: -1px;
+  font-size: 34px;
+  line-height: 1.15;
 }
 
 .subtitle {
-  margin: 10px 0 24px;
   color: #64748b;
-  font-size: 14px;
+  margin: 12px 0 26px;
   line-height: 1.6;
 }
 
 .auth-tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  padding: 5px;
-  margin-bottom: 24px;
-  border-radius: 10px;
+  gap: 5px;
   background: #f1f5f9;
+  padding: 5px;
+  border-radius: 14px;
+  margin-bottom: 26px;
 }
 
 .auth-tabs button {
-  padding: 11px;
   border: 0;
-  border-radius: 8px;
   background: transparent;
-  color: #64748b;
+  padding: 13px;
+  border-radius: 10px;
   font-weight: 700;
+  color: #64748b;
   cursor: pointer;
 }
 
 .auth-tabs button.active {
-  background: white;
-  color: #1d4ed8;
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
 }
 
 .auth-card form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 18px;
 }
 
 .auth-card label {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
-  color: #334155;
+  font-weight: 700;
   font-size: 14px;
-  font-weight: 600;
 }
 
-.auth-card input {
+.auth-card input[type="email"],
+.auth-card input[type="password"],
+.auth-card input[type="text"] {
   width: 100%;
-  box-sizing: border-box;
-  padding: 13px 14px;
+  padding: 14px 15px;
   border: 1px solid #cbd5e1;
-  border-radius: 9px;
+  border-radius: 11px;
   outline: none;
-  background: white;
-  color: #0f172a;
-  font: inherit;
-  font-size: 14px;
+  background: #fff;
+  color: #172033;
 }
 
 .auth-card input:focus {
@@ -117,122 +133,472 @@
 }
 
 .submit-button {
-  margin-top: 4px;
-  padding: 14px;
   border: 0;
-  border-radius: 9px;
+  border-radius: 11px;
+  padding: 14px 18px;
   background: #2563eb;
   color: white;
-  font-size: 15px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .submit-button:hover {
   background: #1d4ed8;
+  transform: translateY(-1px);
 }
 
 .submit-button:disabled {
-  opacity: 0.65;
-  cursor: wait;
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .message {
   margin: 18px 0 0;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 13px 15px;
+  border-radius: 11px;
   background: #eff6ff;
-  color: #1e40af;
-  font-size: 13px;
+  color: #1d4ed8;
+  font-size: 14px;
   line-height: 1.5;
-  overflow-wrap: anywhere;
 }
 
 .security-note {
-  margin: 24px 0 0;
-  color: #94a3b8;
-  font-size: 12px;
   text-align: center;
-  line-height: 1.5;
+  color: #94a3b8;
+  font-size: 13px;
+  margin: 24px 0 0;
 }
 
-@media (max-width: 480px) {
-  .auth-page {
-    padding: 16px;
-  }
-
-  .auth-card {
-    padding: 26px 22px;
-  }
-
-  .auth-card h1 {
-    font-size: 26px;
-  }
+.loading-card {
+  text-align: center;
 }
 
+/* =========================
+   DASHBOARD
+========================= */
 
-.service-section {
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid #e5e7eb;
+.dashboard-page {
+  min-height: 100vh;
+  padding: 35px 20px;
+  background:
+    radial-gradient(circle at top right, #e8f1ff 0, transparent 35%),
+    #f4f7fb;
 }
 
-.service-section h2 {
-  margin-bottom: 12px;
-}
-
-.service-section form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.service-section input[type="file"] {
-  display: block;
+.dashboard-container {
   width: 100%;
-  margin-top: 10px;
-  font-size: 14px;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
-.profile-preview {
-  width: 120px;
-  height: 120px;
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.dashboard-subtitle {
+  margin: 10px 0 0;
+  color: #64748b;
+}
+
+.logout-button {
+  border: 1px solid #dbe3ef;
+  background: white;
+  color: #dc2626;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #fef2f2;
+}
+
+.dashboard-message {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.dashboard-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.card-label {
+  display: block;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 7px;
+}
+
+.dashboard-card h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 12px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #e5e7eb;
-  margin: 12px 0;
+  border: 3px solid #dbeafe;
 }
 
-.profile-placeholder {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: #eef2ff;
-  color: #4b5563;
+.placeholder-avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  font-size: 13px;
-  margin: 12px 0;
-  padding: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 28px;
+  font-weight: 800;
 }
 
-.uploaded-image {
+.patient-details,
+.appointment-info,
+.report-details {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.patient-details p,
+.appointment-info p,
+.report-details p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.patient-details strong,
+.appointment-info strong,
+.report-details strong {
+  color: #475569;
+}
+
+.patient-details span,
+.appointment-info span,
+.report-details span {
+  text-align: right;
+  color: #172033;
+}
+
+.upload-box {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.upload-box input,
+.report-upload input {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.secondary-button {
+  border: 1px solid #2563eb;
+  background: white;
+  color: #2563eb;
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: #eff6ff;
+}
+
+.secondary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================
+   APPOINTMENT
+========================= */
+
+.appointment-test {
+  margin-top: 20px;
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.status-badge,
+.report-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  color: #047857;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: capitalize;
+  margin-top: 18px;
+}
+
+/* =========================
+   REPORT
+========================= */
+
+.report-section {
+  margin-top: 22px;
+}
+
+.report-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
   margin-top: 20px;
 }
 
-.uploaded-image img {
-  display: block;
-  max-width: 100%;
-  max-height: 320px;
-  object-fit: contain;
-  border-radius: 12px;
-  margin: 12px 0;
+.uploaded-preview {
+  background: #f8fafc;
+  border-radius: 15px;
+  padding: 16px;
 }
 
-.uploaded-image a {
+.uploaded-preview p {
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.uploaded-preview img {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+.uploaded-preview a {
+  display: inline-block;
+  margin-top: 12px;
   color: #2563eb;
-  overflow-wrap: anywhere;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.report-upload {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.report-upload p {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+.upload-button {
+  width: auto;
+  margin-top: 4px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 25px 2px 10px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+  .dashboard-grid,
+  .report-content {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+  }
+
+  .dashboard-header h1 {
+    font-size: 30px;
+  }
+
+  .logout-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .auth-card {
+    padding: 25px 20px;
+    border-radius: 20px;
+  }
+
+  .auth-card h1 {
+    font-size: 29px;
+  }
+
+  .dashboard-page {
+    padding: 20px 12px;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .patient-details p,
+  .appointment-info p,
+  .report-details p {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .patient-details span,
+  .appointment-info span,
+  .report-details span {
+    text-align: left;
+  }
+
+  .dashboard-footer {
+    flex-direction: column;
+  }
+}
+
+/* Fix patient profile image */
+.dashboard-card .profile-avatar {
+  width: 72px !important;
+  height: 72px !important;
+  min-width: 72px;
+  max-width: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid #dbeafe;
+}
+
+/* ================================
+   APPOINTMENT STATUS TIMELINE
+================================ */
+
+.appointment-timeline {
+  margin-top: 20px;
+  padding: 18px 0 4px;
+  border-top: 1px solid #e7edf5;
+}
+
+.timeline-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #17233c;
+  margin-bottom: 16px;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  padding: 4px 0;
+}
+
+.timeline-dot {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background: #eef2f7;
+  color: #7b8798;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid #dce3ec;
+  box-sizing: border-box;
+}
+
+.timeline-step.active .timeline-dot {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.timeline-step strong {
+  display: block;
+  font-size: 13px;
+  color: #17233c;
+  line-height: 1.4;
+}
+
+.timeline-step small {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  color: #718096;
+  line-height: 1.4;
+}
+
+.timeline-line {
+  width: 2px;
+  height: 18px;
+  background: #dce3ec;
+  margin-left: 13px;
 }
