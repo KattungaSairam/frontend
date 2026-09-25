@@ -1,16 +1,115 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Diagnostics Appointment & Reporting System
 
-Currently, two official plugins are available:
+A full-stack patient portal demo that allows users to create an account, log in securely, manage their profile, view diagnostic appointments, track appointment status, view reports, and upload diagnostic images/documents.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Application
 
-## React Compiler
+Deployed using Vercel.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> https://frontend-six-tau-4bu6jguq6k.vercel.app/
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User Sign Up and Login
+- Supabase Authentication
+- Patient profile and patient ID
+- Profile picture upload
+- Upcoming diagnostic appointment
+- Appointment status timeline
+- Diagnostic report details
+- Diagnostic image/document upload
+- Uploaded diagnostic image preview
+- User logout
+- Responsive patient dashboard
+- User-specific data access using Supabase Row Level Security (RLS)
+- User-specific file organization in Supabase Storage
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React
+- Vite
+- JavaScript
+- CSS
+
+### Backend / Services
+- Supabase Authentication
+- Supabase PostgreSQL Database
+- Supabase Storage
+- Node.js / Express backend
+- REST API
+
+### Deployment
+- Vercel - Frontend
+- AWS EC2 - Backend
+
+## 🔐 Authentication & Security
+
+Authentication is handled using Supabase Auth.
+
+Database tables use Row Level Security (RLS) so authenticated users can access their own records.
+
+The application was tested with two separate users to verify data isolation:
+
+- User A can access User A's data
+- User B can access User B's data
+- User A cannot see User B's database records
+- User B cannot see User A's database records
+
+Environment files containing configuration values are excluded from Git.
+
+> This project is a demonstration application and is not intended for production healthcare data without additional security, privacy, compliance, and access-control measures.
+
+## 🗄️ Database
+
+The application uses Supabase PostgreSQL with the following main tables:
+
+### `patient_profiles`
+
+Stores patient profile information such as:
+
+- User ID
+- Patient ID
+- Full name
+- Phone
+- Date of birth
+- Gender
+- Blood group
+- Profile picture URL
+
+### `appointments`
+
+Stores diagnostic appointment information such as:
+
+- Appointment code
+- Appointment date
+- Appointment time
+- Test name
+- Diagnostic center
+- Doctor
+- Appointment status
+
+### `diagnostic_reports`
+
+Stores diagnostic report information such as:
+
+- Report code
+- Test name
+- Report date
+- Result status
+- Uploaded diagnostic image URL
+- Notes
+
+## 📁 Storage
+
+Supabase Storage is used for uploaded files.
+
+The application organizes files by authenticated user:
+
+```text
+customer-images/
+└── <user-id>/
+    ├── profile/
+    ├── reports/
+    └── uploads/
